@@ -31,12 +31,15 @@ O **Sistema de Aluguel de Carros** é uma plataforma web que permite a gestão c
 
 ## 🛠️ **Tecnologias Utilizadas**
 
-- ****: Java
-- **Arquitetura**: MVC (Model-View-Controller)
-- **Framework**: Spring Boot
-- **Banco de Dados**: *Insira o banco de dados utilizado (ex: MySQL, PostgreSQL)*
-- **Front-end**: *Insira as tecnologias front-end utilizadas (ex: HTML, CSS, JavaScript, Thymeleaf)*
-- **Versionamento**: Git e GitHub
+1. Spring Boot          10. Microsserviços 
+2. React                11. Kafka
+3. PostgreSQL           12. Kubernetes
+4. JWT                  13. Serveless
+5. Tailwind             14. Google Maps API
+6. Kotlin               15. Chatbot com Dialogflow
+7. Next.js              16. Elasticsearch
+8. GraphQL              17. Apache Flink
+9. Docker               18. Machine Learning
 
 ---
 
@@ -44,7 +47,7 @@ O **Sistema de Aluguel de Carros** é uma plataforma web que permite a gestão c
 
 O projeto está organizado da seguinte forma:
 
-- **`src/main/java`**: Código-fonte Java (Controllers, Models, Services, Repositories).
+- **`src/main/java`**: Código-fonte
 - **`src/main/resources`**: Configurações, templates e arquivos estáticos.
 - **`src/test`**: Testes unitários e de integração.
 - **`docs`**: Documentação do projeto (diagramas UML, relatórios, etc.).
@@ -55,17 +58,13 @@ O projeto está organizado da seguinte forma:
 
 Aqui estão os principais diagramas UML desenvolvidos durante o projeto:
 
-- **Diagrama de Casos de Uso**: *Insira uma breve descrição ou link para o diagrama*.
-- **Diagrama de Classes**: *Insira uma breve descrição ou link para o diagrama*.
-- **Diagrama de Componentes**: *Insira uma breve descrição ou link para o diagrama*.
-- **Diagrama de Implantação**: *Insira uma breve descrição ou link para o diagrama*.
+- **Diagrama de Casos de Uso**
+- **Diagrama de Classes**
+- **Diagrama de Componentes**
+- **Diagrama de Implantação**
 
 ---
 
 ## � **Como Executar o Projeto**
 
 Siga os passos abaixo para rodar o projeto em sua máquina local:
-
-1. **Clone o repositório**:
-   ```bash
-   git clone https://github.com/*seu-usuario*/sistema-aluguel-carros.git
