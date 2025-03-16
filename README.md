@@ -31,15 +31,24 @@ O **Sistema de Aluguel de Carros** é uma plataforma web que permite a gestão c
 
 ## 🛠️ **Tecnologias Utilizadas**
 
-1. Spring Boot          10. Microsserviços 
-2. React                11. Kafka
-3. PostgreSQL           12. Kubernetes
-4. JWT                  13. Serveless
-5. Tailwind             14. Google Maps API
-6. Kotlin               15. Chatbot com Dialogflow
-7. Next.js              16. Elasticsearch
-8. GraphQL              17. Apache Flink
-9. Docker               18. Machine Learning
+1. Spring Boot          
+2. React               
+3. PostgreSQL          
+4. JWT                 
+5. Tailwind            
+6. Kotlin               
+7. Next.js            
+8. GraphQL             
+9. Docker              
+10. Microsserviços
+11. Kafka
+12. Kubernetes
+13. Serveless
+14. Google Maps API
+15. Chatbot com Dialogflow
+16. Elasticsearch
+17. Apache Flink
+18. Machine Learning
 
 ---
 
