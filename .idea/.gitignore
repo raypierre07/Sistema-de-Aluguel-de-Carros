@@ -8,7 +8,7 @@
 /dataSources.local.xml
 
 # Dependencias
-node_modules/
+/BackEnd/node_modules/
 
 # IDE
 .idea/
