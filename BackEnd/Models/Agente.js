@@ -18,6 +18,9 @@ Agente.init({
     tipo: {
         type: DataTypes.ENUM,
         allowNull: false
+    },
+    rendimentos: {
+        type: DataTypes.ARRAY
     }
 }, {
     sequelize,
