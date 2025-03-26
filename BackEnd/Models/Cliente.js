@@ -29,3 +29,5 @@ Cliente.init({
     tableName: 'Cliente',
     timestamps: false
 });
+
+module.exports = Cliente

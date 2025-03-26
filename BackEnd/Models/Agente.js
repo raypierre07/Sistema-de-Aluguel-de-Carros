@@ -28,3 +28,5 @@ Agente.init({
     tableName: 'Carros',
     timestamps: false
 })
+
+module.exports = Agente

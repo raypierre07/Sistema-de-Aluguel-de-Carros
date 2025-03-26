@@ -1,5 +1,5 @@
-const { Sequelize } = require('sequelize');
 require('dotenv').config();
+const { Sequelize } = require('sequelize');
 
 const sequelize = new Sequelize({
     host: process.env.DB_HOST,
@@ -16,6 +16,7 @@ sequelize.authenticate()
     })
     .catch(err => {
         console.error('Erro ao conectar no banco de dados:', err);
+
     });
 
 module.exports = sequelize;

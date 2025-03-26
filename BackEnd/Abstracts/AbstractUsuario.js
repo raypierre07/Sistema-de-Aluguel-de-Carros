@@ -1,5 +1,5 @@
 const { Model, DataTypes } = require('sequelize');
-const sequelize = require('Config/db.js');
+const sequelize = require('../Config/db');
 
 class AbstractUsuario extends Model{}
 
@@ -28,3 +28,5 @@ AbstractUsuario.init({
     tableName: 'Usuario',
     timestamps: false
 })
+
+module.exports = AbstractUsuario
