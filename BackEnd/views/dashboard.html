@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Dashboard do Cliente</title>
+  <link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <h1>AlugaCar</h1>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="#">Perfil</a></li>
+        <li><a href="#">Pedidos</a></li>
+        <li><a href="#">Histórico</a></li>
+        <li><a href="#">Suporte</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <!-- Resumo de Pedidos -->
+    <section class="order-summary">
+      <h2>Resumo de Pedidos</h2>
+      <div class="cards">
+        <div class="card">
+          <h3>Pendentes</h3>
+          <p>3</p>
+        </div>
+        <div class="card">
+          <h3>Aprovados</h3>
+          <p>5</p>
+        </div>
+        <div class="card">
+          <h3>Cancelados</h3>
+          <p>1</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Área de Ação Rápida -->
+    <section class="quick-action">
+      <h2>Ações Rápidas</h2>
+      <button onclick="window.location.href='novo-pedido.html'">Novo Pedido de Aluguel</button>
+      <button onclick="window.location.href='perfil.html'">Editar Perfil</button>
+    </section>
+  </main>
+  <footer>
+    <p>© 2025 AlugaCar. Todos os direitos reservados.</p>
+  </footer>
+</body>
+</html>
