@@ -1,0 +1,35 @@
+.titulo {
+    text-align: center;
+}
+
+.dados-pessoais,
+.dados-endereco,
+.dados-rendimentos,
+.dados-senha {
+    display: flex;
+    width: 400px;           
+    border: 2px solid hsl(0, 0%, 0%);
+    padding: 10px;
+    width: 90%;
+    box-sizing: border-box;
+    margin: 20px auto;
+    text-align: center;
+}
+
+input {
+    display: block;
+    margin: 10px auto;
+    text-align: left;
+}
+
+#nome {
+    padding-inline: 8%;
+}
+
+#rua {
+    padding-inline: 10%;
+}
+
+.botao {
+    text-align: center;
+}

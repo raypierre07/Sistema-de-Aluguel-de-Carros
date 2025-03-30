@@ -3,16 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <title>Login</title>
+    <link rel="stylesheet" href="css/login.css">
 </head>
 <body>
-<h1>Login</h1>
-<input type="text" placeholder="email@email.com">
+    <h1 class="nome-empresa">Alugueis de Carros</h1>
+    <div class="menu-principal">
+        <h1 class="titulo-login">Login</h1>
+        <form action="/login" method="POST">
+            <h2 class="titulo-login">Email</h2>
+            <input class="caixa-mensagem" type="email" id="email" name="email" placeholder="email@exemplo.com" required>
 
-<h2>Subtítulo</h2>
-<input type="text" placeholder="sua senha">
+            <h2 class="titulo-login">Senha</h2>
+            <input class="caixa-mensagem" type="password" id="senha" name="senha" placeholder="sua senha" required>
 
-<button>Registrar</button>
-
-<button>Entrar</button>
+            <div class="botao">
+                <button type="submit">Entrar</button>
+            </div>
+        </form>
+        <div class="botao">
+            <button type="button" onclick="window.location.href='register.html'">Registrar</button>
+        </div>
+    </div>
+    <script src="./javaScript/login.js"></script>
 </body>
 </html>

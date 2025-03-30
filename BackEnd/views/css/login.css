@@ -1,0 +1,33 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;          
+    margin: 0;
+    padding: 20px;          
+    box-sizing: border-box;
+  }
+  
+
+  .menu-principal {
+    width: 400px;           
+    border: 2px solid hsl(0, 0%, 0%);
+    padding: px;          
+    box-sizing: border-box;
+  }
+
+  .titulo-login {
+    text-align: center;
+  }
+
+  .caixa-mensagem {
+  display: block;
+  margin: 0 auto;
+  }
+
+  .botao {
+    display: block;
+    text-align: center;
+    padding: 10px;
+  }
+
