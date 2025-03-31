@@ -25,7 +25,7 @@ Agente.init({
 }, {
     sequelize,
     modelName: 'Agente',
-    tableName: 'Carros',
+    tableName: 'agente',
     timestamps: false
 })
 

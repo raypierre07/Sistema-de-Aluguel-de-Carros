@@ -37,7 +37,7 @@ Carro.init({
 }, {
     sequelize,
     modelName: 'Carro',
-    tableName: 'Carros',
+    tableName: 'carro',
     timestamps: true,
     paranoid: true,
     hooks: {

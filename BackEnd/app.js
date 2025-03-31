@@ -6,7 +6,7 @@ const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 require('dotenv').config();
 
-const indexRouter = require('./routes/index');
+const loginRouter = require('./routes/login')
 const usersRouter = require('./routes/users');
 
 const app = express();
@@ -27,7 +27,7 @@ app.use(session({
   saveUninitialized: true
 }));
 
-app.use('/', indexRouter);
+app.use('/', loginRouter);
 app.use('/users', usersRouter);
 
 const UsuarioRoutes = require('./routes/Usuario')

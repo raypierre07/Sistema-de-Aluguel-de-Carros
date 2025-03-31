@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <link rel="stylesheet" href="css/login.css">
+</head>
+<body>
+  <!-- Cabeçalho -->
+  <header>
+    <div class="logo">
+      <h1>AlugaCar</h1>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="dashboard.html">Dashboard</a></li>
+        <li><a href="perfil.html">Perfil</a></li>
+        <li><a href="pedidos.html">Pedidos</a></li>
+        <li><a href="suporte.html">Suporte</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="menu-principal">
+      <h1 class="titulo-login">Login</h1>
+      <form action="/login" method="POST">
+          <h2 class="titulo-login">Email</h2>
+          <input class="caixa-mensagem" type="email" id="email" name="email" placeholder="email@exemplo.com" required>
+
+          <h2 class="titulo-login">Senha</h2>
+          <input class="caixa-mensagem" type="password" id="senha" name="senha" placeholder="sua senha" required>
+
+          <div class="botao">
+              <button type="submit">Entrar</button>
+          </div>
+      </form>
+      <div class="botao">
+          <button type="button" onclick="window.location.href='register.html'">Registrar</button>
+      </div>
+  </div>
+</body>
+</html>
