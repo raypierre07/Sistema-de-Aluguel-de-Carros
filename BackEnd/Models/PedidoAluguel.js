@@ -18,7 +18,7 @@ PedidoAluguel.init({
         allowNull: false
     },
     carro_matricula: {
-        type: DataTypes.STRING,
+        type: DataTypes.INTEGER,
         references: {
             model: 'carro',
             key: 'matricula'

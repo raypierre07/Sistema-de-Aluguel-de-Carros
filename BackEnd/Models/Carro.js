@@ -5,13 +5,13 @@ class Carro extends Model {}
 
 Carro.init({
     matricula: {
-        type: DataTypes.STRING,
+        type: DataTypes.INTEGER,
         primaryKey: true,
         allowNull: false,
         unique: true
     },
     ano: {
-        type: DataTypes.INTEGER,
+        type: DataTypes.DATE,
         allowNull: false,
         validate: {
             min: 1900,
