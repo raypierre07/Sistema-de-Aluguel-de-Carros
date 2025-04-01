@@ -1,7 +1,6 @@
 const Usuario = require("../Abstracts/AbstractUsuario");
 const bcrypt = require('bcrypt');
 const Cliente = require("../Models/Cliente")
-const {randomInit} = require("mysql/lib/protocol/Auth");
 
 async function alterarSenha(req, res) {
     try {
