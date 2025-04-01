@@ -1,5 +1,5 @@
 const { Model, DataTypes } = require('sequelize');
-const sequelize = require('Config/db');
+const sequelize = require('../Config/db');
 
 class Carro extends Model {}
 

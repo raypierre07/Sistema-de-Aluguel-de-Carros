@@ -1,5 +1,7 @@
 const Usuario = require("../Abstracts/AbstractUsuario");
 const bcrypt = require('bcrypt');
+const Cliente = require("../Models/Cliente")
+const {randomInit} = require("mysql/lib/protocol/Auth");
 
 async function alterarSenha(req, res) {
     try {
@@ -28,4 +30,45 @@ async function alterarSenha(req, res) {
     }
 }
 
-module.exports = {alterarSenha}
+async function registrarCliente(req, res){
+    try{
+        const { nome, email, profissao, rg, cpf, rua, numero, bairro, cidade, rendimento1, rendimento2, rendimento3, senha} = req.body
+
+        if(!nome || !email || !profissao || !rg || !cpf || !rua || !numero || !bairro || !cidade || !rendimento1 || !rendimento2 || !rendimento3 || !senha){
+            console.log(nome, email, profissao, rg, cpf, rua, numero, bairro, cidade, rendimento1, rendimento2, rendimento3, senha)
+            return res.status(203).json({error: "Todos os campos precisam ser preenchidos"})
+        }
+        let id;
+        do {
+            id = Math.random() * (1 - 1000) + 1000
+        } while (await Usuario.findByPk());
+
+        const usuario = await Usuario.create({
+            id: id,
+            nome: nome,
+            email: email,
+            senha: senha
+        });
+
+        let endereco = rua + "," + numero + "," + bairro + "," + cidade
+
+        const cliente = await Cliente.create({
+            id: id,
+            rg: rg,
+            cpf: cpf,
+            endereco: endereco,
+            profissao: profissao
+        })
+
+        await usuario.save()
+        await cliente.save()
+
+        res.status(200).json({message: "Usuario criado"})
+
+    }catch (error){
+        console.error("Erro ao criar usuario", error)
+        res.status(500).json({ error: "Erro ao criar usuario" });
+    }
+}
+
+module.exports = {alterarSenha, registrarCliente}

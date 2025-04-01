@@ -1,6 +1,6 @@
 const { Model, DataTypes } = require('sequelize');
-const sequelize = require('Config/db');
-const AbstractUsuario = require('Abstracts/AbstractUsuario')
+const sequelize = require('../Config/db');
+const AbstractUsuario = require('../Abstracts/AbstractUsuario')
 
 class Agente extends AbstractUsuario{}
 
