@@ -34,7 +34,7 @@ app.use(session({
 
 app.use('/', loginRouter);
 app.use('/users', usersRouter);
-app.use('/cliente', registrarRouter);
+app.use('/', registrarRouter);
 app.use('/dashboard', dashboardRouter);
 app.use('/agent-dashboard', agentDashboardRouter);
 app.use('/pedido-aluguel', pedidoAluguelRouter);
