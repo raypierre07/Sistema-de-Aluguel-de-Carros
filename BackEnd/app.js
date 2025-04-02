@@ -11,6 +11,8 @@ const usersRouter = require('./routes/users');
 const registrarRouter = require('./routes/registrar');
 const dashboardRouter = require('./routes/dashboard');
 const agentDashboardRouter = require('./routes/agent-dashboard');
+const pedidoAluguelRouter = require('./routes/pedido-aluguel');
+const requisicaoRouter = require('./routes/agent-request');
 
 const app = express();
 
@@ -35,6 +37,8 @@ app.use('/users', usersRouter);
 app.use('/', registrarRouter);
 app.use('/dashboard', dashboardRouter);
 app.use('/agent-dashboard', agentDashboardRouter);
+app.use('/pedido-aluguel', pedidoAluguelRouter);
+app.use('/requisicao', requisicaoRouter);
 
 const UsuarioRoutes = require('./routes/Usuario')
 const PedidosRoute = require('./routes/PedidosRoute')
