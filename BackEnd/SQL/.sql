@@ -39,13 +39,17 @@ create table Carro(
     placa varchar(8)
 );
 
-create table pedido_aluguel(
-    id int primary key,
-    cliente_id int,
-    carro_matricula int,
-    data_inicio date,
-    data_fim date,
+
+CREATE TABLE pedido_aluguel (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    cliente_id INT,
+    carro_matricula INT,
+    data_inicio DATE,
+    data_fim DATE,
     status ENUM('Aberto', 'Em analise', 'Concluido', 'Cancelado'),
-    foreign key (carro_matricula) references Carro(matricula),
-    foreign key (cliente_id) references Cliente(id)
+    FOREIGN KEY (carro_matricula) REFERENCES Carro(matricula),
+    FOREIGN KEY (cliente_id) REFERENCES Cliente(id)
 );
+
+INSERT INTO carro (matricula, ano, marca, modelo, placa)
+VALUES (1, '2023-01-01', 'Toyota', 'Corolla', 'ABC-1234');

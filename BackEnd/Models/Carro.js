@@ -38,7 +38,7 @@ Carro.init({
     sequelize,
     modelName: 'Carro',
     tableName: 'carro',
-    timestamps: true,
+    timestamps: false,
     paranoid: true,
     hooks: {
         beforeValidate: (carro) => {

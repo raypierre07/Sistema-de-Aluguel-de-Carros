@@ -35,7 +35,10 @@ app.use('/', registrarRouter);
 app.use('/dashboard', dashboardRouter);
 
 const UsuarioRoutes = require('./routes/Usuario')
+const PedidosRoute = require('./routes/PedidosRoute')
+app.use('/', PedidosRoute)
 app.use('/', UsuarioRoutes);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

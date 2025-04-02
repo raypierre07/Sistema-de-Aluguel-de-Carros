@@ -7,7 +7,9 @@ PedidoAluguel.init({
     id: {
         type: DataTypes.INTEGER,
         allowNull: false,
-        unique: true
+        unique: true,
+        primaryKey: true,
+        autoIncrement: true
     },
     cliente_id: {
         type: DataTypes.INTEGER,
@@ -26,23 +28,23 @@ PedidoAluguel.init({
         allowNull: false
     },
     data_inicio: {
-        type: DataTypes.TIME,
+        type: DataTypes.DATE,
         timestamps: true,
         allowNull: false
     },
     data_fim: {
-        type: DataTypes.TIME,
+        type: DataTypes.DATE,
         timestamps: true,
         allowNull: true
     },
     status: {
-        type: DataTypes.ENUM,
+        type: DataTypes.ENUM("Aberto", "Em analise", "Concluido", "Cancelado"),
         allowNull: false
     }
 },{
     sequelize,
-    modelName: 'PedidoAluguel',
-    tableName: 'pedidoAluguel',
+    modelName: 'pedido_aluguel',
+    tableName: 'pedido_aluguel',
     timestamps: false
 })
 
