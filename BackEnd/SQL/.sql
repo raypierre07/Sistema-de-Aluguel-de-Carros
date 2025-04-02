@@ -1,7 +1,7 @@
 use Sistema_de_Aluguel;
 
 create table Usuario(
-    id int primary key,
+    id int primary key auto_increment,
     nome VARCHAR(255),
     email VARCHAR(255),
     senha VARCHAR(255)
@@ -51,5 +51,11 @@ CREATE TABLE pedido_aluguel (
     FOREIGN KEY (cliente_id) REFERENCES Cliente(id)
 );
 
+insert into usuario (nome, email, senha)
+values ( 'jao', 'jao@gmail.com', '1234');
+
+insert into cliente (id, rg, cpf, endereco, profissao)
+values (2, 3213213123, 'eeeeeee', 'wwwwww', 'weqweq');
+
 INSERT INTO carro (matricula, ano, marca, modelo, placa)
-VALUES (1, '2023-01-01', 'Toyota', 'Corolla', 'ABC-1234');
+VALUES (2, '2023-01-01', 'Toyota', 'Corolla', 'ABC-1234');

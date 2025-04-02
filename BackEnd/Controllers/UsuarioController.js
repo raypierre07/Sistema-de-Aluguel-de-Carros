@@ -29,38 +29,20 @@ async function alterarSenha(req, res) {
     }
 }
 
-async function registrarCliente(req, res){
+async function registrarUsuario(req, res){
     try{
-        const { nome, email, profissao, rg, cpf, rua, numero, bairro, cidade, rendimento1, rendimento2, rendimento3, senha} = req.body
+        const { nome, email, senha} = req.body
 
-        if(!nome || !email || !profissao || !rg || !cpf || !rua || !numero || !bairro || !cidade || !rendimento1 || !rendimento2 || !rendimento3 || !senha){
-            console.log(nome, email, profissao, rg, cpf, rua, numero, bairro, cidade, rendimento1, rendimento2, rendimento3, senha)
+        if(!nome || !email || !senha){
             return res.status(203).json({error: "Todos os campos precisam ser preenchidos"})
         }
-        let id;
-        do {
-            id = Math.random() * (1 - 1000) + 1000
-        } while (await Usuario.findByPk());
+
 
         const usuario = await Usuario.create({
-            id: id,
             nome: nome,
             email: email,
             senha: senha
         });
-
-        let endereco = rua + "," + numero + "," + bairro + "," + cidade
-
-        const cliente = await Cliente.create({
-            id: id,
-            rg: rg,
-            cpf: cpf,
-            endereco: endereco,
-            profissao: profissao
-        })
-
-        await usuario.save()
-        await cliente.save()
 
         res.status(200).json({message: "Usuario criado"})
 
@@ -70,4 +52,4 @@ async function registrarCliente(req, res){
     }
 }
 
-module.exports = {alterarSenha, registrarCliente}
+module.exports = { alterarSenha , registrarUsuario}

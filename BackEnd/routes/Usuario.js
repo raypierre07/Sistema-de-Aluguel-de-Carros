@@ -3,6 +3,6 @@ const router = express.Router();
 const AbstractUsuarioController = require("../Controllers/UsuarioController")
 
 router.post('/atualizarSenha', AbstractUsuarioController.alterarSenha)
-router.post('/registrarCliente', AbstractUsuarioController.registrarCliente)
+router.post('/registrarUsuario', AbstractUsuarioController.registrarUsuario)
 
 module.exports = router

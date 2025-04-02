@@ -6,11 +6,10 @@ class Cliente extends AbstractUsuario {}
 
 Cliente.init({
     id: {
+      autoIncrement: true,
+      primaryKey: true,
       type: DataTypes.INTEGER,
       allowNull: false,
-      unique: true,
-        primaryKey: true,
-      autoIncrement: true,
     },
     rg: {
         type: DataTypes.STRING,

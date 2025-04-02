@@ -28,39 +28,49 @@ async function login(req, res){
     }
 }
 
-async function registrar(req, res){
-    try {
-        const { nome, email, rg, cpf, profissao, rua, numero, bairro, cidade, rendimento01, rendimento02, rendimento03, senha } = req.body;
+async function registrarCliente(req, res){
+    try{
+        const { nome, email, profissao, rg, cpf, rua, numero, bairro, cidade, rendimento1, rendimento2, rendimento3, senha} = req.body
 
-        // Verificar se todos os campos obrigatórios foram preenchidos
-        if (!nome || !email || !rg || !cpf || !rua || !profissao|| !numero || !bairro || !cidade || !rendimento01 || !senha) {
-            return res.status(400).json({ error: 'Todos os campos obrigatórios precisam ser preenchidos' });
+        if(!nome || !email || !profissao || !rg || !cpf || !rua || !numero || !bairro || !cidade || !rendimento1 || !rendimento2 || !rendimento3 || !senha){
+            return res.status(203).json({error: "Todos os campos precisam ser preenchidos"})
         }
 
-        // Criar endereço combinado
-        const endereco = `${rua}, ${numero}, ${bairro}, ${cidade}`;
 
-        // Criar novo cliente no banco de dados
-        const novoCliente = await Cliente.create({
-            nome,
-            email,
-            rg,
-            cpf,
-            profissao,
-            endereco,
-            rendimento01,
-            rendimento02,
-            rendimento03,
-            senha
+        const usuario = await Usuario.create({
+            nome: nome,
+            email: email,
+            senha: senha
         });
 
-        res.status(201).json({ message: 'Cliente registrado com sucesso!', cliente: novoCliente });
-    } catch (err) {
-        console.error('Erro ao registrar cliente:', err);
-        res.status(500).json({ error: 'Erro ao registrar cliente' });
+        const usuarioCriado = await Usuario.findOne({ where: { email: email } });
+
+        if (!usuarioCriado || !usuarioCriado.id) {
+            return res.status(500).json({ error: "Erro ao criar usuário, ID não foi gerado." });
+        }
+
+
+        let endereco = `${rua}, ${numero}, ${bairro}, ${cidade}`
+
+        const cliente = await Cliente.create({
+            id: usuarioCriado.id,
+            rg: rg,
+            cpf: cpf,
+            endereco: endereco,
+            profissao: profissao
+        })
+
+
+
+        res.status(200).json({message: "Cliente criado"})
+
+    }catch (error){
+        console.error("Erro ao criar cliente", error)
+        res.status(500).json({ error: "Erro ao criar cliente" });
     }
+
 
 }
 
 
-module.exports = { login, registrar}
+module.exports = { login, registrarCliente}
