@@ -35,20 +35,16 @@ async function modificarPedido(req, res) {
     try {
         const { pedido_id, carro_matricula, data_inicio, data_fim, status } = req.body;
 
-        // Validação: Campos obrigatórios
         if (!pedido_id || !carro_matricula || !data_inicio || !data_fim || !status) {
             return res.status(400).json({ error: "Preencha todos os campos" });
         }
 
-        // Encontrar o pedido
         const pedido = await Pedido.findByPk(pedido_id);
 
-        // Verificar se o pedido existe
         if (!pedido) {
             return res.status(404).json({ error: "Pedido não encontrado" }); // Use 404 em vez de 401
         }
 
-        // Atualizar o pedido
         await pedido.update({
             carro_matricula: carro_matricula,
             data_inicio: data_inicio,
@@ -56,7 +52,6 @@ async function modificarPedido(req, res) {
             status: status
         });
 
-        // Retornar sucesso
         return res.status(200).json({ message: "Pedido alterado com sucesso", pedido });
 
     } catch (err) {
@@ -65,5 +60,33 @@ async function modificarPedido(req, res) {
     }
 }
 
+async function consultarPedido(req, res) {
+    try {
+        const { cliente_id } = req.body;
 
-module.exports = { criarPedido, modificarPedido};
+        if (!cliente_id) {
+            return res.status(400).json({ error: "Todos os campos precisam ser preenchidos" });
+        }
+
+        const cliente = await Cliente.findByPk(cliente_id);
+        if (!cliente) {
+            return res.status(404).json({ error: "Usuário não encontrado." });
+        }
+
+        const pedidos = await Pedido.findAll({
+            where: { cliente_id: cliente_id }
+        });
+
+        if (pedidos.length === 0) {
+            return res.status(404).json({ error: "Nenhum pedido encontrado para este cliente." });
+        }
+
+        return res.status(200).json({ message: "Pedidos encontrados:", pedidos });
+
+    } catch (err) {
+        console.error("Erro ao consultar pedido:", err);
+        return res.status(500).json({ error: "Erro ao consultar pedido" });
+    }
+}
+
+module.exports = { criarPedido, modificarPedido, consultarPedido};
