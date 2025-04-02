@@ -5,6 +5,13 @@ const AbstractUsuario = require('../Abstracts/AbstractUsuario')
 class Cliente extends AbstractUsuario {}
 
 Cliente.init({
+    id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      unique: true,
+        primaryKey: true,
+      autoIncrement: true,
+    },
     rg: {
         type: DataTypes.STRING,
         allowNull: false,

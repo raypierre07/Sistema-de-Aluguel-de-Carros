@@ -8,7 +8,7 @@ create table Usuario(
 );
 
 create table Cliente(
-    id int primary key,
+    id int primary key auto_increment,
     rg VARCHAR(255),
     cpf VARCHAR(14),
     endereco VARCHAR(255),

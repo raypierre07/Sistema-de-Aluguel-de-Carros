@@ -28,4 +28,39 @@ async function login(req, res){
     }
 }
 
-module.exports = { login }
+async function registrar(req, res){
+    try {
+        const { nome, email, rg, cpf, profissao, rua, numero, bairro, cidade, rendimento01, rendimento02, rendimento03, senha } = req.body;
+
+        // Verificar se todos os campos obrigatórios foram preenchidos
+        if (!nome || !email || !rg || !cpf || !rua || !profissao|| !numero || !bairro || !cidade || !rendimento01 || !senha) {
+            return res.status(400).json({ error: 'Todos os campos obrigatórios precisam ser preenchidos' });
+        }
+
+        // Criar endereço combinado
+        const endereco = `${rua}, ${numero}, ${bairro}, ${cidade}`;
+
+        // Criar novo cliente no banco de dados
+        const novoCliente = await Cliente.create({
+            nome,
+            email,
+            rg,
+            cpf,
+            profissao,
+            endereco,
+            rendimento01,
+            rendimento02,
+            rendimento03,
+            senha
+        });
+
+        res.status(201).json({ message: 'Cliente registrado com sucesso!', cliente: novoCliente });
+    } catch (err) {
+        console.error('Erro ao registrar cliente:', err);
+        res.status(500).json({ error: 'Erro ao registrar cliente' });
+    }
+
+}
+
+
+module.exports = { login, registrar}

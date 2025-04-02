@@ -6,4 +6,6 @@ router.get('/registrar', (req, res) => {
     res.render('register')
 })
 
+router.post('/registrarCliente', ClienteController.registrar)
+
 module.exports = router
