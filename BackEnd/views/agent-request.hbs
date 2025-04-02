@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Pedidos de Clientes - Agentes</title>
+    <link rel="stylesheet" href="/stylesheets/agent-request.css">
+</head>
+<body>
+<!-- Cabeçalho -->
+<header>
+    <div class="logo">
+        <h1>AlugaCar - Agentes</h1>
+    </div>
+    <nav>
+        <ul>
+            <li><a href="/agent-dashboard">Dashboard</a></li>
+            <li><a href="/agent-requests">Pedidos</a></li>
+            <li><a href="/agent-reports">Relatórios</a></li>
+            <li><a href="/agent-profile">Perfil</a></li>
+            <li><a href="/suporte">Suporte</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main>
+    <h2>Pedidos de Clientes - Baseados nos Rendimentos</h2>
+    <table>
+        <thead>
+        <tr>
+            <th>ID Pedido</th>
+            <th>Nome do Cliente</th>
+            <th>Rendimento</th>
+            <th>Carro</th>
+            <th>Data Início</th>
+            <th>Data Fim</th>
+            <th>Status</th>
+            <th>Ações</th>
+        </tr>
+        </thead>
+        <tbody>
+        {{#each requests}}
+            <tr>
+                <td>{{this.id}}</td>
+                <td>{{this.clientName}}</td>
+                <td>{{this.rendimento}}</td>
+                <td>{{this.carro}}</td>
+                <td>{{this.data_inicio}}</td>
+                <td>{{this.data_fim}}</td>
+                <td>{{this.status}}</td>
+                <td>
+                    <button onclick="window.location.href='/agent-request/{{this.id}}'">Visualizar</button>
+                    <button onclick="window.location.href='/agent-request/approve/{{this.id}}'">Aprovar</button>
+                </td>
+            </tr>
+        {{/each}}
+        </tbody>
+    </table>
+</main>
+
+<footer>
+    <p>© 2025 AlugaCar. Todos os direitos reservados.</p>
+</footer>
+</body>
+</html>
