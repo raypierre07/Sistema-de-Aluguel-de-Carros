@@ -8,6 +8,9 @@ require('dotenv').config();
 
 const loginRouter = require('./routes/login')
 const usersRouter = require('./routes/users');
+const registrarRouter = require('./routes/registrar');
+const dashboardRouter = require('./routes/dashboard');
+const agentDashboardRouter = require('./routes/agent-dashboard');
 
 const app = express();
 
@@ -29,6 +32,9 @@ app.use(session({
 
 app.use('/', loginRouter);
 app.use('/users', usersRouter);
+app.use('/', registrarRouter);
+app.use('/dashboard', dashboardRouter);
+app.use('/agent-dashboard', agentDashboardRouter);
 
 const UsuarioRoutes = require('./routes/Usuario')
 const PedidosRoute = require('./routes/PedidosRoute')
