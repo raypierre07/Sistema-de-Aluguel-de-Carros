@@ -2,29 +2,36 @@ const Cliente = require('../Models/Cliente')
 const {where} = require("sequelize");
 const Usuario = require("../Abstracts/AbstractUsuario")
 
-async function login(req, res){
+async function login(req, res) {
     try {
-        const { email, senha } = req.body
+        const { email, senha } = req.body;
 
-        if(!email || !senha){
-            return res.status(204).json({error: "Preencha todos os campos"})
+        if (!email || !senha) {
+            return res.status(400).json({ error: "Preencha todos os campos" });
         }
 
-        const usuario = await Usuario.findOne({where: { email }})
+        const usuario = await Usuario.findOne({ where: { email } });
 
-        if(!usuario){
-            return res.status(401).json({error: "Usuario nao encontrado"})
+        if (!usuario) {
+            return res.status(401).json({ error: "Usuário não encontrado" });
         }
 
-        if((await usuario).getDataValue("senha") !== senha){
-            return res.status(401).json({error: "Senha incorreta"})
+        if (usuario.getDataValue("senha") !== senha) {
+            return res.status(401).json({ error: "Senha incorreta" });
         }
 
-        return res.status(200).json({message: "entrou"})
+        // Salvar informações do usuário na sessão
+        req.session.user = {
+            id: usuario.getDataValue("id"),
+            email: usuario.getDataValue("email"),
+        };
 
-    }catch (error){
-        console.error("Nao foi possivel fazer login", error)
-        res.status(500).json({ error: "Nao foi possivel fazer login" });
+        // Responder com o redirecionamento
+        return res.status(200).json({ redirect: "/pedido-aluguel" });
+
+    } catch (error) {
+        console.error("Não foi possível fazer login", error);
+        res.status(500).json({ error: "Não foi possível fazer login" });
     }
 }
 

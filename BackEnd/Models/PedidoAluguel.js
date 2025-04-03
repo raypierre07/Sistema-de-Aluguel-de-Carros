@@ -29,12 +29,10 @@ PedidoAluguel.init({
     },
     data_inicio: {
         type: DataTypes.DATE,
-        timestamps: true,
         allowNull: false
     },
     data_fim: {
         type: DataTypes.DATE,
-        timestamps: true,
         allowNull: true
     },
     status: {

@@ -23,16 +23,16 @@
 
 <main>
     <h2>Cadastro de Pedido de Aluguel</h2>
-    <form action="/pedido" method="POST">
+    <form action="/fazerPedido" method="POST">
         <!-- Campo oculto para o ID do cliente -->
         <input type="hidden" name="clientId" value="{{clientId}}">
 
         <!-- Seleção do carro disponível -->
         <label for="carro">Selecione o Carro:</label>
-        <select name="carroId" id="carro" required>
+        <select name="carro_matricula" id="carro" required>
             <option value="">Selecione um carro</option>
             {{#each cars}}
-                <option value="{{this.id}}">{{this.marca}} - {{this.modelo}} ({{this.ano}})</option>
+                <option value="{{this.matricula}}">{{this.marca}} - {{this.modelo}} ({{this.ano}})</option>
             {{/each}}
         </select>
 
@@ -46,6 +46,31 @@
 
         <button type="submit">Fazer Pedido</button>
     </form>
+
+    <!-- Lista de pedidos do cliente -->
+    <h2>Seus Pedidos</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>ID do Pedido</th>
+                <th>Carro</th>
+                <th>Data Início</th>
+                <th>Data Fim</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each pedidos}}
+            <tr>
+                <td>{{this.id}}</td>
+                <td>{{this.carro.marca}} - {{this.carro.modelo}} ({{this.carro.matricula}})</td>
+                <td>{{this.data_inicio}}</td>
+                <td>{{this.data_fim}}</td>
+                <td>{{this.status}}</td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
 </main>
 
 <footer>

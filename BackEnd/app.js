@@ -13,6 +13,7 @@ const dashboardRouter = require('./routes/dashboard');
 const agentDashboardRouter = require('./routes/agent-dashboard');
 const pedidoAluguelRouter = require('./routes/pedido-aluguel');
 const requisicaoRouter = require('./routes/agent-request');
+const pedidoRouter = require('./routes/PedidosRoute')
 
 const app = express();
 
@@ -32,6 +33,7 @@ app.use(session({
   saveUninitialized: true
 }));
 
+app.use('/pedido-aluguel', pedidoRouter)
 app.use('/', loginRouter);
 app.use('/users', usersRouter);
 app.use('/', registrarRouter);
@@ -43,7 +45,7 @@ app.use('/requisicao', requisicaoRouter);
 const UsuarioRoutes = require('./routes/Usuario')
 const PedidosRoute = require('./routes/PedidosRoute')
 app.use('/', PedidosRoute)
-app.use('/', UsuarioRoutes);
+app.use('/usuario', UsuarioRoutes);
 
 
 // catch 404 and forward to error handler
